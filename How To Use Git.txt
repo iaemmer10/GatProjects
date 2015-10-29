@@ -1,0 +1,19 @@
+
+
+//Kill everything and revert 3 branches
+git reset --hard Head~3
+
+
+COMMIT EARLY AND OFTEN
+
+//pull before anything
+git pull
+
+//add all files you've changed
+git add -A
+
+//commit to the master
+git commit -a
+
+//git push
+git push

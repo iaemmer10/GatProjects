@@ -1,6 +1,8 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
+Project("{3ED25668-285A-E961-70C1-35CE594DE50F}") = "Cameratrium", "Assembly-CSharp-firstpass.csproj", "{B5248CE2-C958-7630-8352-354C264EF99B}"
+EndProject
 Project("{3ED25668-285A-E961-70C1-35CE594DE50F}") = "Cameratrium", "Assembly-CSharp.csproj", "{60250209-2329-D7E4-5902-C2E1269C0FBA}"
 EndProject
 Project("{3ED25668-285A-E961-70C1-35CE594DE50F}") = "Cameratrium", "Assembly-CSharp-Editor.csproj", "{864AD6A2-365D-C1F7-9611-05E1728D5E2F}"
@@ -11,6 +13,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B5248CE2-C958-7630-8352-354C264EF99B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5248CE2-C958-7630-8352-354C264EF99B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5248CE2-C958-7630-8352-354C264EF99B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5248CE2-C958-7630-8352-354C264EF99B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{60250209-2329-D7E4-5902-C2E1269C0FBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{60250209-2329-D7E4-5902-C2E1269C0FBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60250209-2329-D7E4-5902-C2E1269C0FBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -23,7 +29,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																											GlobalSection(MonoDevelopProperties) = preSolution
+																																	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1

@@ -1,31 +1,35 @@
-#ignore thumbnails created by windows
+# Ignore everything
+
+Title_Base/Library/*
+
+
+# Inverse ignore some stuff
+
+
+# OS Stuff
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
-#ignore files build by Visual Studio
-*.user
-*.aps
-*.pch
-*.vspscc
-*._i.c
-*._p.c
-*.ncb
-*.suo
-*.bak
-*.cache
-*.ilk
-*.log
-[Bb]in
-[Dd]ebug*/
-*.sbr
-obj/
-[Rr]elease*/
-_ReSharper*/
-#Ignore files build by Visual Studio
-*.obj
-*.exe
-*.pdb
-*_i.c
-*_p.c
-*.tlb
-*.tlh
-*.lib
-[Tt]est[Rr]esult*
+$RECYCLE.BIN/
+Desktop.ini
+
+
+Title_Base/Assets/Scenes/Player_House.unity
+Title_Base/Assets/Scenes/Player_House.unity
+Title_Base/obj/
+Title_Base/Library/
+Title_Base/Temp/
+Title_Base/.vs/
+
+!Title_Base/Assets/*
+!ProjectSettings/
+!.gitignore
+
+*.csproj
+*.sln
+*.orig
+*.userprefs
+/Title_Base/Assets/ArtAssets/Items/GardenHose/Real/*.ini
