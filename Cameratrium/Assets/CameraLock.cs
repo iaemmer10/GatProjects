@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FollowCamera : MonoBehaviour {
+public class CameraLock : MonoBehaviour {
+
+    public GameObject Target;
 
 	// Use this for initialization
 	void Start () {
@@ -10,6 +12,6 @@ public class FollowCamera : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+        transform.LookAt(Target.transform.position);
 	}
 }
