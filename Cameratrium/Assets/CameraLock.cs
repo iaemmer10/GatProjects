@@ -7,11 +7,11 @@ public class CameraLock : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
-	}
+        transform.LookAt(Target.transform.position);
+    }
 	
 	// Update is called once per frame
 	void Update () {
         transform.LookAt(Target.transform.position);
-	}
+    }
 }

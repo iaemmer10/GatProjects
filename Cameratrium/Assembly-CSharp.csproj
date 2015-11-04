@@ -48,6 +48,8 @@
      <Compile Include="Assets\CameraLock.cs" />
      <Compile Include="Assets\CameraTracker.cs" />
      <Compile Include="Assets\DrawDebug.cs" />
+     <Compile Include="Assets\MoveOnHeight.cs" />
+     <Compile Include="Assets\RailCam.cs" />
      <Compile Include="Assets\SampleScenes\Menu\Scripts\EventSystemChecker.cs" />
      <Compile Include="Assets\SampleScenes\Menu\Scripts\MenuSceneLoader.cs" />
      <Compile Include="Assets\SampleScenes\Menu\Scripts\PauseMenu.cs" />
