@@ -91,7 +91,7 @@ public class CameraTracker : MonoBehaviour {
         CamChild.transform.position = oldpos;
 
         //Physics raycast from center, to the camera's default
-        Camera camera = CamChild.GetComponent<Camera>();
+        //Camera camera = CamChild.GetComponent<Camera>();
         //Debug.DrawLine(CamPivot.transform.position, CameraZoom + CamPivot.transform.position, Color.yellow, 0f, true);
         Debug.DrawLine(CamPivot.transform.position, newpos, Color.blue, 0f, true);
         //return treu if not hitting anything
