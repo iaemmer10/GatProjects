@@ -4,27 +4,39 @@ using System.Collections;
 public class RailCam : MonoBehaviour {
     public GameObject Player;
     public GameObject Child;
-    public float CamDist = 10;
+    //public float CamDist = 10;
 
-	// Use this for initialization
-	void Start () {
+    public bool XAxe = true;
+    public bool YAxe = true;
+    public bool ZAxe = true;
+
+    // Use this for initialization
+    void Start () {
 	
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        gameObject.transform.position = new Vector3(gameObject.transform.position.x, Player.transform.position.y, gameObject.transform.position.z);
 
-        //print(Vector3.Distance(Player.transform.position, Child.transform.position));
-        /*
-        if(Vector3.Distance(Player.transform.position, Child.transform.position) > CamDist + 1)
+        if (XAxe == true)
         {
-            Child.transform.Translate(0f, 0f, 0.1f);
+            //gameObject.transform.position = new Vector3(Player.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
+            gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, new Vector3(Player.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Time.deltaTime);
         }
-        else if (Vector3.Distance(Player.transform.position, Child.transform.position) < CamDist -1)
+        if (YAxe == true)
         {
-            Child.transform.Translate(0f, 0f, -0.1f);
-        }*/
+            //gameObject.transform.position = new Vector3(gameObject.transform.position.x, Player.transform.position.y, gameObject.transform.position.z);
+            gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, new Vector3(gameObject.transform.position.x, Player.transform.position.y, gameObject.transform.position.z), Time.deltaTime);
+        }
+        if (ZAxe == true)
+        {
+            //gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, Player.transform.position.z);
+            gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, Player.transform.position.z), Time.deltaTime);
+        }
 	}
+    public void SwapX()
+    {
+
+    }
 }

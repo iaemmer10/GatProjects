@@ -2,13 +2,23 @@
 using System.Collections;
 
 public class MoveOnHeight : MonoBehaviour {
-    Vector3 origPosition = Vector3.zero;
-    public GameObject Player = null;
+    //Vector3 origPosition = Vector3.zero;
+    public GameObject RotSphere = null;
+
+    float StartingDistance = 0f;
+ 
 
 	// Use this for initialization
 	void Start () {
-        origPosition = this.gameObject.transform.localPosition;
-	    //save the distance until hitting the ground
+        //origPosition = this.gameObject.transform.localPosition;
+        //save the distance until hitting the ground
+
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 100f))
+        {
+            StartingDistance = hit.distance;
+            //print(hit.distance);
+        }
 	}
 	
 	// Update is called once per frame
@@ -20,21 +30,26 @@ public class MoveOnHeight : MonoBehaviour {
         //if the raycast is gr
 
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, 10f))
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 100f))
         {
-            //if(Vector3.Distance(Vector3(hit.point,0,0), Vector3(0,gameObject.transform.position.y,0)) > 0)
-            if (Mathf.Abs(Player.transform.position.y - hit.point.y) > 3)
+            if(hit.collider.tag == "Ramp")
             {
-                print("Greater than five");
-             
-            }
-            else if(hit.collider.tag == "Ramp")
-            {
-                //print("ramp");
-                //print(hit.point);
+                var dist = StartingDistance - hit.distance;
+
+                
+                if(dist > 1.6f)
+                {
+                    dist = 1.6f;
+                }
+                else if(dist < -1.6f)
+                {
+                    dist = -1.6f;
+                }
+                //RotSphere.transform.localRotation = Quaternion.EulerAngles(new Vector3(-dist*0.5f, 0, 0));
+                RotSphere.transform.localRotation = Quaternion.Slerp(RotSphere.transform.localRotation, Quaternion.EulerAngles(new Vector3(-dist * 0.5f, 0, 0)), Time.deltaTime);
 
                 //gameObject.transform.position = Vector3(gameObject.transform.position.x, hit.point.y + 1.5f, gameObject.transform.position.z);
-                gameObject.transform.position = Vector3.Lerp(this.gameObject.transform.position, new  Vector3(gameObject.transform.position.x, hit.point.y + 1.5f, gameObject.transform.position.z), Time.deltaTime);
+                //gameObject.transform.position = Vector3.Lerp(this.gameObject.transform.position, new  Vector3(gameObject.transform.position.x, hit.point.y + 1.5f, gameObject.transform.position.z), Time.deltaTime);
 
             }
 

@@ -12,36 +12,41 @@ public class OnTriggerCameraSwap : MonoBehaviour
     GameObject InterpolatedCam = null;
     bool Collided = false;
 
+    public float lerptime = 1f;
+    float currentLerpTime = 0f;
+
     // Use this for initialization
     void Start()
     {
-
     }
-
     // Update is called once per frame
     void Update()
     {
         //if exists, Interpolate to target every frame
         if(InterpolatedCam != null && TargetCam != null)
         {
-            InterpolatedCam.transform.position = Vector3.Lerp(InterpolatedCam.transform.position, TargetCam.transform.position, (Time.deltaTime * 0.999f));
-            InterpolatedCam.transform.rotation = Quaternion.Slerp(InterpolatedCam.transform.rotation, TargetCam.transform.rotation, (Time.deltaTime * 0.9f));
-            if(TargetCam == SndCam)
-            {
-                InterpolatedCam.transform.position = Vector3.Lerp(InterpolatedCam.transform.position, TargetCam.transform.position, (Time.deltaTime));
-            }
+            currentLerpTime += Time.deltaTime;
 
-            if (Vector3.Distance(InterpolatedCam.transform.position, TargetCam.transform.position) < 0.1)
+            float perc = currentLerpTime / lerptime;
+            
+            InterpolatedCam.transform.position = Vector3.Lerp(InterpolatedCam.transform.position, TargetCam.transform.position, (perc));
+            InterpolatedCam.transform.rotation = Quaternion.Slerp(InterpolatedCam.transform.rotation, TargetCam.transform.rotation, (perc));
+            
+            print(perc);
+            if (perc > lerptime/50)
             {
+                currentLerpTime = 0;
+
                 //If within range, destroy interpolatecam and set targetcamera real
-                print("Within Dist");
+
                 Camera camon = TargetCam.GetComponent<Camera>();
                 TargetCam.tag = "MainCamera";
                 camon.enabled = true;
-
-
+                
                 Destroy(InterpolatedCam);
             }
+
+            
         }
 
         //On enter/exit change target. 
